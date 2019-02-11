@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
+         MatListModule, MatInputModule, MatCardModule } from '@angular/material';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import {ROUTES} from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
 import { SearchComponent } from './search/search.component';
 import { HeaderComponent } from './header/header.component';
 import { WidgetComponent } from './widget/widget.component';
@@ -29,12 +31,14 @@ import { WidgetComponent } from './widget/widget.component';
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
+    MatCardModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

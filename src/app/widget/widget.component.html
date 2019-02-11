@@ -1,3 +1,20 @@
-<p>
-  widget works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> Widget 01 </mat-card-title>
+    <mat-card-actions align="end"></mat-card-actions>
+  </mat-card-header>
+  <mat-card-content>
+      <highcharts-chart 
+      [Highcharts]="Highcharts"
+
+      [constructorType]="chartConstructor"
+      [options]="chartOptions"
+      [callbackFunction]="chartCallback"
+
+      [(update)]="updateFlag"
+      [oneToOne]="oneToOneFlag"
+      [runOutsideAngular]="runOutsideAngularFlag"
+
+      style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+  </mat-card-content>
+</mat-card>
