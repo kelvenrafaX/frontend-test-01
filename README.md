@@ -1,54 +1,27 @@
-# Desafio Front-end Delfosim
-> Desafio para ingressar como Front-end Developer na Delfosim em Fortaleza-CE
+# Delfos
 
-![DELFOSIM Logo](images/delfos_Intelligent_maintenance.png?raw=true "DELFOSIM Logo")
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
-## Sobre o desafio
-Não será passado prazo para entrega, verifique os pré-requisitos e nos dê seu prazo, mas fique atento pois vamos avaliar mais rigorosamente seu código quanto mais demorar para entregar a partir da data em que foi feito o fork desse repositório. A ideia é simples, você terá que desenvolver 1 tela (com dados falsos mesmo) seguindo alguns pré requisitos e o seguinte layout:
+## Development server
 
-![Desafio](images/tela-01.png?raw=true "Desafio")
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Pré requisitos
-* [ ] ReactJS, Angular, VueJS ou Javascript puro
-* [ ] Ícones em svg
-* [ ] Use cores do Material Design
-* [ ] Documentar como rodamos servidor do projeto no README.MD
+## Code scaffolding
 
-## Dicas
-- Styled Components
-- Seguir Material Design Guidelines
-- React Router
-- Highcharts
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Diferenciais
-- Criar issues e resolvê-las a partir de pull requests
-- Documentação no código
-- Arquivos pequenos com poucas responsabilidades
-- Redux
-- Criação de servidor para os mocks da tela
-- Usabilidade e feedback para o usuário no carregamento da consulta
-- Seguir algum Javascript Style Guide
-- Layout responsivo (seja criativo!)
+## Build
 
-## Pronto para começar o desafio?
-- Faça um "fork" desse repositório na sua conta do Github
-- Crie uma branch com o seu nome e sobrenome ex: ```lucas-franca```
-- Após completar o desafio, crie um "pull request" nesse repositório comparando a sua branch com a master
-- Receberemos uma notificação do seu pull request, faremos a correção da sua solução e entraremos em contato com o email da conta do github em que foi executada o desafio
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## FAQ
-- Posso usar o create-react-app para completar o desafio?
+## Running unit tests
 
-**Sim, você pode usar qualquer cli para criar seu projeto**
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-- Preciso necessariamente fazer um fork do projeto?
+## Running end-to-end tests
 
-**Sim, para que possamos saber quanto tempo você levou para executar o desafio**
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-- Aonde estão os assets?
+## Further help
 
-**Esse desafio não te dá nenhum asset, você terá que buscá-los por conta própria**
-
-- Tenho mais dúvidas, com quem posso entrar em contato?
-
-**Entre em contato com [Lucas França](https://github.com/lffranca), Delfosim elaborador desse desafio.**
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
