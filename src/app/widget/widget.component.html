@@ -12,9 +12,15 @@
       [callbackFunction]="chartCallback"
 
       [(update)]="updateFlag"
-      [oneToOne]="oneToOneFlag"
+      
       [runOutsideAngular]="runOutsideAngularFlag"
 
       style="width: 100%; height: 400px; display: block;"></highcharts-chart>
   </mat-card-content>
 </mat-card>
+
+<div style="margin: 4% 0; float: right;">
+  <button mat-fab (click)="openAddWidget()">
+    <mat-icon svgIcon="plus"></mat-icon>
+  </button>
+</div>
