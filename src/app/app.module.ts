@@ -1,3 +1,4 @@
+/* Modules */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -12,8 +13,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { WidgetModule } from './components/widget/widget.module';
 
+/* Routes */
 import {ROUTES} from './app.routes';
 
+/* Components */
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
