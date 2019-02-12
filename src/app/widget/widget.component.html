@@ -1,7 +1,16 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> Widget 01 </mat-card-title>
-    <mat-card-actions align="end"></mat-card-actions>
+    <mat-card-title> {{widget?.name}} </mat-card-title>
+    <span class="fill-space"></span>
+    <mat-card-actions align="end">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <mat-icon svgIcon="menu"></mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Editar</button>
+        <button mat-menu-item>Excluir</button>
+      </mat-menu>
+    </mat-card-actions>
   </mat-card-header>
   <mat-card-content>
       <highcharts-chart 

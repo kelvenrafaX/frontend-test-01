@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
-         MatListModule, MatInputModule, MatCardModule, MatDialogModule } from '@angular/material';
+         MatListModule, MatInputModule, MatCardModule, MatDialogModule, MatMenuModule } from '@angular/material';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
@@ -36,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     HighchartsChartModule,
     HttpClientModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
   ],
   exports: [
     WidgetComponent, AddWidgetComponent

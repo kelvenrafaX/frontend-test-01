@@ -1,0 +1,60 @@
+{
+  "widgets": [
+    {
+      "id": 1,
+      "name": "Widget 1",
+      "values": [
+        {
+          "id": 0,
+          "value": 1
+        },
+        {
+          "id": 1,
+          "value": 2
+        },
+        {
+          "id": 2,
+          "value": 3
+        }
+      ]
+    },
+    {
+      "name": "Widget 02",
+      "values": [
+        {
+          "id": 0,
+          "value": "15"
+        },
+        {
+          "id": 1,
+          "value": "5"
+        },
+        {
+          "id": 2,
+          "value": "20"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "name": "Widget 03",
+      "values": [
+        {
+          "id": 0,
+          "value": 0
+        },
+        {
+          "id": 1,
+          "value": 0
+        }
+      ],
+      "id": 4
+    },
+    {
+      "id": 5
+    }
+  ]
+}
