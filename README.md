@@ -18,7 +18,7 @@ Run `npm install -g json-server` for install Json Server.
 
 ## Start Api
 
-Run `json-server --watch db.json` in the root folder to start json server as backend.
+Run `json-server --watch db.json --port 3000` in the root folder to start json server as backend.
 
 ## Development server
 
