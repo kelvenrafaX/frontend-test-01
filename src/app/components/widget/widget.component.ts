@@ -3,10 +3,9 @@ import * as Highcharts from 'highcharts';
 import { MatDialog, MatIconRegistry } from '@angular/material';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Widget } from './widget';
-import { WidgetService } from './widget.service';
+import { Widget } from '../../models/widget';
+import { WidgetService } from 'src/app/providers/widget.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-widget',
@@ -18,19 +17,15 @@ export class WidgetComponent implements OnInit {
 
   widget: Widget;
 
-  Highcharts = Highcharts;
-  chartConstructor = 'chart';
-  chartOptions = {
-    title: '',
-    series: [{
-      data: []
-    }]
+  Highcharts: any;
+  chartConstructor: string;
+  chartOptions: {
+    title: string,
+    series: [{ data: number[] }]
   };
-  updateFlag = false;
-  oneToOneFlag = true;
-  runOutsideAngular = false;
-
-  chartCallback = function (chart) { };
+  updateFlag: boolean;
+  oneToOneFlag: boolean;
+  runOutsideAngular: boolean;
 
   constructor( private widgetService: WidgetService, private dialog: MatDialog,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private route: ActivatedRoute,
@@ -46,10 +41,23 @@ export class WidgetComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.Highcharts = Highcharts;
+    this.chartConstructor = 'chart';
+    this.chartOptions = {
+      title: '',
+      series: [{
+        data: []
+      }]
+    };
+    this.updateFlag = false;
+    this.oneToOneFlag = true;
+    this.runOutsideAngular = false;
     this.getWidget();
   }
 
-  getWidget() {
+  chartCallback(chart): void { }
+
+  getWidget(): void {
     this.widgetService.getWidget(this.route.snapshot.params['id'])
     .subscribe( widget => {
       this.widget = widget;
@@ -70,7 +78,7 @@ export class WidgetComponent implements OnInit {
     });
   }
 
-  addWidget(widget: Widget) {
+  addWidget(widget: Widget): void {
     this.widgetService.addWidget(widget)
     .subscribe( response => {
       console.log(response);

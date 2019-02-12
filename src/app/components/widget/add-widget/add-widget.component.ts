@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Widget } from '../widget';
+import { Widget } from '../../../models/widget';
 
 @Component({
   selector: 'app-add-widget',
@@ -13,12 +13,12 @@ export class AddWidgetComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<AddWidgetComponent>) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.widget = { name: 'Name Widget', values: []};
     this.widget.values.push({ id: 0, value: 0});
   }
 
-  addValueWidget() {
+  addValueWidget(): void {
     this.widget.values.push({ id: this.widget.values.length, value: 0});
   }
 }

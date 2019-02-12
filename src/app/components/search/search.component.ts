@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material';
-import { Widget } from '../widget/widget';
-import { WidgetService } from '../widget/widget.service';
+import { Widget } from '../../models/widget';
+import { WidgetService } from 'src/app/providers/widget.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,24 +17,20 @@ export class SearchComponent implements OnInit {
   options: Widget[];
   name: string;
 
-  constructor( public router: Router, private widgetService: WidgetService, iconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'search',
-      sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/search.svg'));
+  constructor( public router: Router, private widgetService: WidgetService,
+    private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('search', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/search.svg'));
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.name = '';
     this.searchWidgets();
   }
 
-  searchWidgets() {
-    console.log('Procurando');
+  searchWidgets(): void {
     this.widgetService.searchWidgets(this.name)
       .subscribe( widgets => {
         this.options = widgets;
-        console.log(widgets);
       });
   }
 }

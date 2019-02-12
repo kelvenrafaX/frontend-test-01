@@ -9,15 +9,15 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { WidgetModule } from './components/widget/widget.module';
 
 import {ROUTES} from './app.routes';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { SearchComponent } from './search/search.component';
-import { HeaderComponent } from './header/header.component';
-import { WidgetModule } from './widget/widget.module';
-import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './pages/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
