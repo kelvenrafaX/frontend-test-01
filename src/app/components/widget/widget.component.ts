@@ -6,6 +6,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Widget } from '../../models/widget';
 import { WidgetService } from 'src/app/providers/widget.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { EditWidgetComponent } from './edit-widget/edit-widget.component';
+import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
 
 @Component({
   selector: 'app-widget',
@@ -70,18 +72,56 @@ export class WidgetComponent implements OnInit {
     });
   }
 
+  addWidget(widget: Widget): void {
+    this.widgetService.addWidget(widget)
+    .subscribe( response => {
+      // TODO: Criar retorno para usuário
+      this.router.navigate([`/home/${response.id}`]);
+    });
+  }
+
+  editWidget(widget: Widget): void {
+    this.widgetService.editWidget(widget)
+    .subscribe( response => {
+      console.log(response);
+      this.getWidget();
+    });
+  }
+
+  deleteWidget(id: number): void {
+    this.widgetService.deleteWidget(id)
+    .subscribe( response => {
+      console.log(response);
+      this.widgetService.getWidgets()
+      .subscribe( widgets => {
+        this.widget = widgets[0];
+        this.router.navigate([`/home/${widgets[0].id}`]);
+      });
+    });
+  }
+
   openAddWidget(): void {
     const dialogRef = this.dialog.open(AddWidgetComponent);
-
     dialogRef.afterClosed().subscribe(result => {
       this.addWidget(result);
     });
   }
 
-  addWidget(widget: Widget): void {
-    this.widgetService.addWidget(widget)
-    .subscribe( response => {
-      console.log(response);
+  openEditWidget(): void {
+    const dialogRef = this.dialog.open(EditWidgetComponent, {
+      data: this.widget
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.editWidget(result);
+    });
+  }
+
+  openDeleteWidget(): void {
+    const dialogRef = this.dialog.open(DeleteWidgetComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteWidget(this.widget.id);
+      }
     });
   }
 }

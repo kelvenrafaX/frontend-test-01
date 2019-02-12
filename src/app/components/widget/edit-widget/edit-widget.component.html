@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Edit Widget</h1>
+<div mat-dialog-content>
+  <p>Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="widget.name">
+  </mat-form-field>
+  <p>Values</p>
+  <mat-form-field *ngFor="let item of widget.values">
+    <input matInput [(ngModel)]="item.value">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="widget" cdkFocusInitial>Edit</button>
+  <button mat-button [mat-dialog-close]="" cdkFocusInitial>Cancel</button>
+</div>

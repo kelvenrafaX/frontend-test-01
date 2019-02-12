@@ -12,13 +12,17 @@ import { WidgetComponent } from './widget.component';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { EditWidgetComponent } from './edit-widget/edit-widget.component';
+import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
 
 @NgModule({
   declarations: [
     WidgetComponent,
-    AddWidgetComponent
+    AddWidgetComponent,
+    EditWidgetComponent,
+    DeleteWidgetComponent
   ],
-  entryComponents: [WidgetComponent, AddWidgetComponent],
+  entryComponents: [WidgetComponent, AddWidgetComponent, EditWidgetComponent, DeleteWidgetComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -40,7 +44,7 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule
   ],
   exports: [
-    WidgetComponent, AddWidgetComponent
+    WidgetComponent, AddWidgetComponent, EditWidgetComponent, DeleteWidgetComponent
   ],
   providers: [],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
