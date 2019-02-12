@@ -131,7 +131,9 @@ export class WidgetComponent implements OnInit {
       data: this.widget
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.editWidget(result);
+      if (result !== undefined) {
+        this.editWidget(result);
+      }
     });
   }
 
