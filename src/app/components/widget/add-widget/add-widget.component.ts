@@ -18,6 +18,6 @@ export class AddWidgetComponent implements OnInit {
   }
 
   addValueWidget(): void {
-    this.widget.values.push({ id: this.widget.values.length, value: 0});
+    this.widget.values.push({ id: this.widget.values.length, value: Math.floor((Math.random() * 100) + 1)});
   }
 }
