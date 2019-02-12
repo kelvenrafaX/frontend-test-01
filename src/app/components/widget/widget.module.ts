@@ -7,6 +7,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule,
          MatListModule, MatInputModule, MatCardModule, MatDialogModule, MatMenuModule } from '@angular/material';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { WidgetComponent } from './widget.component';
 import { AddWidgetComponent } from './add-widget/add-widget.component';
@@ -41,7 +42,8 @@ import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   exports: [
     WidgetComponent, AddWidgetComponent, EditWidgetComponent, DeleteWidgetComponent

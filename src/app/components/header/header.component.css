@@ -19,3 +19,33 @@
 .fill-space {
   flex: 1 1 auto;
 }
+
+@media (max-width: 2000px) and (min-width: 1000px) {
+  .logo-header {
+    width: 8%;
+    height: auto;
+  }
+}
+
+@media (max-width: 999px) and (min-width: 781px) {
+  .logo-header {
+    width: 10%;
+    height: auto;
+  }
+}
+
+@media (max-width: 780px) and (min-width: 491px) {
+  .logo-header {
+    width: 15%;
+    height: auto;
+  }
+}
+
+@media (max-width: 490px) and (min-width: 100px) {
+  .logo-header {
+    width: 20%;
+    height: auto;
+  }
+}
+
+

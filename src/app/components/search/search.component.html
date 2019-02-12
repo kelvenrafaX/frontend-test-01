@@ -1,5 +1,7 @@
-<mat-form-field class="myInput">
-  <input [(ngModel)]="name" (keyup)="searchWidgets()" matInput [matAutocomplete]="auto" placeholder="Search...">
+<mat-form-field appearance="legacy" class="myInput">
+  <mat-label>Search...</mat-label>
+  <input [(ngModel)]="name" (keyup)="searchWidgets()" matInput [matAutocomplete]="auto">
+  <mat-icon svgIcon="search"></mat-icon>
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let option of options" [routerLink]="['/home', option.id]" [value]="option.name">
       {{option.name}}

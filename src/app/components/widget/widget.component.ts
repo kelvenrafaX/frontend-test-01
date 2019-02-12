@@ -8,6 +8,7 @@ import { WidgetService } from 'src/app/providers/widget.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { EditWidgetComponent } from './edit-widget/edit-widget.component';
 import { DeleteWidgetComponent } from './delete-widget/delete-widget.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-widget',
@@ -31,7 +32,7 @@ export class WidgetComponent implements OnInit {
 
   constructor( private widgetService: WidgetService, private dialog: MatDialog,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private route: ActivatedRoute,
-    private router: Router ) {
+    private router: Router, private snackBar: MatSnackBar ) {
       iconRegistry.addSvgIcon('plus', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/add.svg'));
       iconRegistry.addSvgIcon('menu', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/menu.svg'));
 
@@ -42,7 +43,7 @@ export class WidgetComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.Highcharts = Highcharts;
     this.chartConstructor = 'chart';
     this.chartOptions = {
@@ -57,12 +58,19 @@ export class WidgetComponent implements OnInit {
     this.getWidget();
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
   chartCallback(chart): void { }
 
   getWidget(): void {
     this.widgetService.getWidget(this.route.snapshot.params['id'])
     .subscribe( widget => {
       this.widget = widget;
+      console.log(this.widget);
       this.chartOptions.series[0].data = [];
       widget.values.map( item => {
         this.chartOptions.series[0].data.push( parseInt(item.value.toString(), 0) );
@@ -75,7 +83,7 @@ export class WidgetComponent implements OnInit {
   addWidget(widget: Widget): void {
     this.widgetService.addWidget(widget)
     .subscribe( response => {
-      // TODO: Criar retorno para usuário
+      this.openSnackBar('Widget created successfully!', 'OK');
       this.router.navigate([`/home/${response.id}`]);
     });
   }
@@ -83,7 +91,7 @@ export class WidgetComponent implements OnInit {
   editWidget(widget: Widget): void {
     this.widgetService.editWidget(widget)
     .subscribe( response => {
-      console.log(response);
+      this.openSnackBar('Widget edited successfully!', 'OK');
       this.getWidget();
     });
   }
@@ -91,7 +99,7 @@ export class WidgetComponent implements OnInit {
   deleteWidget(id: number): void {
     this.widgetService.deleteWidget(id)
     .subscribe( response => {
-      console.log(response);
+      this.openSnackBar('Widget deleted successfully!', 'OK');
       this.widgetService.getWidgets()
       .subscribe( widgets => {
         this.widget = widgets[0];
@@ -103,7 +111,9 @@ export class WidgetComponent implements OnInit {
   openAddWidget(): void {
     const dialogRef = this.dialog.open(AddWidgetComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.addWidget(result);
+      if (result !== undefined) {
+        this.addWidget(result);
+      }
     });
   }
 

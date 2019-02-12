@@ -31,5 +31,15 @@ export class WidgetService {
   addWidget(widget: Widget): Observable<Widget>  {
    return this.http
      .post<Widget>(`${this.url}`, widget, httpOptions);
- }
+  }
+
+  editWidget(widget: Widget): Observable<Widget> {
+    return this.http
+      .put<Widget>(`${this.url}/${widget.id}`, widget, httpOptions);
+  }
+
+  deleteWidget(id: number): Observable<number> {
+    return this.http
+      .delete<number>(`${this.url}/${id}`);
+  }
 }

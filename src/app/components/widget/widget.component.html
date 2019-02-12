@@ -1,6 +1,6 @@
 <mat-card>
-  <h3 *ngIf="widget === undefined"> Widget does not exist or has been deleted! </h3>
-  <mat-card-header *ngIf="widget !== undefined">
+  <h3 *ngIf="widget === undefined || widget.name === undefined"> Widget does not exist or has been deleted! </h3>
+  <mat-card-header *ngIf="widget !== undefined && widget.name !== undefined">
     <mat-card-title> {{widget?.name}} </mat-card-title>
     <span class="fill-space"></span>
     <mat-card-actions align="end">
@@ -13,7 +13,7 @@
       </mat-menu>
     </mat-card-actions>
   </mat-card-header>
-  <mat-card-content *ngIf="widget !== undefined">
+  <mat-card-content *ngIf="widget !== undefined && widget.name !== undefined">
       <highcharts-chart 
         [Highcharts]="Highcharts"
         [constructorType]="chartConstructor"
@@ -21,7 +21,7 @@
         [callbackFunction]="chartCallback"
         [(update)]="updateFlag"      
         [runOutsideAngular]="runOutsideAngularFlag"
-        style="width: 100%; height: 400px; display: block;">
+        style="width: 100%; height: 300px; display: block;">
       </highcharts-chart>
   </mat-card-content>
 </mat-card>
