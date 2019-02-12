@@ -10,11 +10,11 @@ Developed by Kelven Rafael!
 
 Install Node.Js https://nodejs.org/en/download/.
 
-Run `npm install -g @angular/cli` for install Angular CLI in global.
+Run `npm install -g @angular/cli` for install Angular CLI.
 
 Run `npm install` for install the dependencies. 
 
-Run `npm install -g json-server` for install Json Server in global.
+Run `npm install -g json-server` for install Json Server.
 
 ## Start Api
 
