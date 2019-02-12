@@ -6,11 +6,11 @@ Challenge to join as Front-end Developer at Delfosim in Fortaleza-CE.
 
 Developed by Kelven Rafael!
 
-## Dependencies
+## Install Dependencies
 
 Install Node.Js https://nodejs.org/en/download/.
 
-## Install Project
+Run `npm install -g @angular/cli` for install Angular CLI in global.
 
 Run `npm install` for install the dependencies. 
 
