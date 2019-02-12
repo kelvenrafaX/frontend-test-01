@@ -19,12 +19,16 @@ export class SearchComponent implements OnInit {
 
   constructor( public router: Router, private widgetService: WidgetService,
     private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
+
     iconRegistry.addSvgIcon('search', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/search.svg'));
+
+    /* Observing some changes in the parameter 'id'
+    of the route to perform a new search of the widget */
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.searchWidgets();
       }
-  });
+    });
   }
 
   ngOnInit(): void {
@@ -32,10 +36,11 @@ export class SearchComponent implements OnInit {
     this.searchWidgets();
   }
 
+  /* Search for widgets related to the name in the search bar */
   searchWidgets(): void {
     this.widgetService.searchWidgets(this.name)
-      .subscribe( widgets => {
-        this.options = widgets;
-      });
+    .subscribe( widgets => {
+      this.options = widgets;
+    });
   }
 }

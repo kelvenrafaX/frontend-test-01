@@ -20,6 +20,7 @@ export class WidgetComponent implements OnInit {
 
   widget: Widget;
 
+  /* Chart Configuration */
   Highcharts: any;
   chartConstructor: string;
   chartOptions: {
@@ -37,6 +38,8 @@ export class WidgetComponent implements OnInit {
       iconRegistry.addSvgIcon('plus', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/add.svg'));
       iconRegistry.addSvgIcon('menu', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/menu.svg'));
 
+      /* Observing some changes in the parameter 'id'
+      of the route to perform a new search of the widget */
       this.router.events.subscribe((val) => {
           if (val instanceof NavigationEnd) {
             this.getWidget();
@@ -59,25 +62,29 @@ export class WidgetComponent implements OnInit {
     this.getWidget();
   }
 
-  openSnackBar(message: string, action: string) {
+  /* Method to trigger a message to the user */
+  openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {
       duration: 2000,
     });
   }
 
-  chartCallback(chart): void { }
-
+  /* Search for widget related to the param id in router */
   getWidget(): void {
     this.widgetService.getWidget(this.route.snapshot.params['id'])
     .subscribe( widget => {
-      this.widget = widget;
-      this.chartOptions.series[0].data = [];
-      widget.values.map( item => {
-        this.chartOptions.series[0].data.push( parseInt(item.value.toString(), 0) );
-      });
-
-      this.updateFlag = true;
+      this.updateChart(widget);
     });
+  }
+
+  updateChart(widget: Widget): void {
+    this.widget = widget;
+    this.chartOptions.series[0].data = [];
+    widget.values.map( item => {
+      this.chartOptions.series[0].data.push( parseInt(item.value.toString(), 0) );
+    });
+
+    this.updateFlag = true;
   }
 
   addWidget(widget: Widget): void {
@@ -108,6 +115,7 @@ export class WidgetComponent implements OnInit {
     });
   }
 
+  /* Opens the widget addition dialog and waits for the closure */
   openAddWidget(): void {
     const dialogRef = this.dialog.open(AddWidgetComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -117,6 +125,7 @@ export class WidgetComponent implements OnInit {
     });
   }
 
+  /* Opens the widget editing dialog and waits for the closure */
   openEditWidget(): void {
     const dialogRef = this.dialog.open(EditWidgetComponent, {
       data: this.widget
@@ -126,6 +135,7 @@ export class WidgetComponent implements OnInit {
     });
   }
 
+  /* Opens the widget deleting dialog and waits for the closure */
   openDeleteWidget(): void {
     const dialogRef = this.dialog.open(DeleteWidgetComponent);
     dialogRef.afterClosed().subscribe(result => {
