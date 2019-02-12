@@ -1,11 +1,10 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material';
 import { Widget } from '../../../models/widget';
 
 @Component({
   selector: 'app-add-widget',
-  templateUrl: './add-widget.component.html',
-  styleUrls: ['./add-widget.component.css']
+  templateUrl: './add-widget.component.html'
 })
 export class AddWidgetComponent implements OnInit {
 

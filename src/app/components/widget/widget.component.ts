@@ -33,6 +33,7 @@ export class WidgetComponent implements OnInit {
   constructor( private widgetService: WidgetService, private dialog: MatDialog,
     iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private route: ActivatedRoute,
     private router: Router, private snackBar: MatSnackBar ) {
+
       iconRegistry.addSvgIcon('plus', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/add.svg'));
       iconRegistry.addSvgIcon('menu', sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/menu.svg'));
 
@@ -70,7 +71,6 @@ export class WidgetComponent implements OnInit {
     this.widgetService.getWidget(this.route.snapshot.params['id'])
     .subscribe( widget => {
       this.widget = widget;
-      console.log(this.widget);
       this.chartOptions.series[0].data = [];
       widget.values.map( item => {
         this.chartOptions.series[0].data.push( parseInt(item.value.toString(), 0) );

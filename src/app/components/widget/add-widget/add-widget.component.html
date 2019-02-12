@@ -6,8 +6,8 @@
   </div>
 
   <div>
-    <mat-form-field style="margin-right: 10px;" *ngFor="let item of widget.values">
-      <input type="number" matInput [(ngModel)]="item.value">
+    <mat-form-field style="margin-right: 10px;" *ngFor="let item of widget.values; let i = index">
+      <input type="number" matInput [(ngModel)]="item.value" placeholder="Value #{{i + 1}}">
     </mat-form-field>
   </div>
 

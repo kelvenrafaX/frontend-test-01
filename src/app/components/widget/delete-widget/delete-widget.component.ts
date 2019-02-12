@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-delete-widget',
-  templateUrl: './delete-widget.component.html',
-  styleUrls: ['./delete-widget.component.css']
+  templateUrl: './delete-widget.component.html'
 })
 export class DeleteWidgetComponent {
 
